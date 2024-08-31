@@ -1,7 +1,9 @@
-// Commento singola riga
+const { createApp } = Vue
 
-/*
-
-    Commento multipla riga
-
-*/
+  createApp({
+    data() {
+      return {
+        message: 'Hello Vue!'
+      }
+    }
+  }).mount('#app')
