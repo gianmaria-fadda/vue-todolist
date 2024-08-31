@@ -15,8 +15,12 @@
     <!--Vue-->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <body>
-        <div id="app">
-            {{ message }}
+        <div v-for="list in todoList" id="app">
+            <ul>
+                <li>
+                    todo
+                </li>
+            </ul>
         </div>
         
         <!--JS-->
