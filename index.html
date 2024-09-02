@@ -15,12 +15,38 @@
     <!--Vue-->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <body>
-        <div v-for="list in todoList" id="app">
-            <ul>
-                <li>
-                    todo
-                </li>
-            </ul>
+        <div id="app">
+            <header>
+                <div class="container">
+                    <h1>To-Do list</h1>
+
+                    <div>
+                        <h6>
+                            Aggiungi il to-do: {{ newTodo }}
+                        </h6>
+
+                        <form @submit.prevent="addTodo">
+                            <input @keyup.enter="addTodo()" v-model="newTodo" type="text">
+                            <button @click="addTodo()">
+                                Aggiungi
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="container">
+                    <ul>
+                        <li v-for="(todo, index) in todos" :class="{'done': todo.done == false, 'not-done': todo.done == true}">
+                            {{ todo.text }}
+
+                            <button @click="removeTodo(index)">
+                                X
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </main>
         </div>
         
         <!--JS-->
